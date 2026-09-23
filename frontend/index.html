@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend IaC Lab 03</title>
+</head>
+<body>
+    <h1>Frontend IaC Lab 03</h1>
+    <p>Respuesta que da Backend en NodeJs</p>
+    <pre id="resultado">Cargando ....</pre>
+
+    <script>
+        fetch('/api/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resultado').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('resultado').textContent = 'Error al obtener datos del backend: ' + error;
+            });
+    </script>
+</body>
+</html>
