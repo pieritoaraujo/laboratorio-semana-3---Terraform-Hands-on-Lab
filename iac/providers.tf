@@ -8,5 +8,6 @@ terraform {
 }
 
 provider "docker" {
+  host = "unix://${pathexpand("~/.docker/run/docker.sock")}"
   # Configuration options
 }
